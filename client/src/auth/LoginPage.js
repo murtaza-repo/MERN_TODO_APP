@@ -16,7 +16,7 @@ export const LoginPage = ({isLoading}) => {
     setLoginError('');
     signInWithEmailAndPassword(getAuth(),emailValue, passwordValue).then(data => {
       localStorage.setItem("id", data.user.uid);
-      return <Redirect to='/' />
+      history.push('/');
     }).catch(e => {
       console.log(e.message);
       if(!emailValue || !passwordValue){

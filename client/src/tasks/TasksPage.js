@@ -7,9 +7,10 @@ import { useUser } from './../auth/useUser';
 import { AddTask } from './AddTask';
 import { postWithCredentials } from './../data/postWithCredentials';
 
-export const TasksPage = () => {
+export const TasksPage = ({user}) => {
 
-  const { user } = useUser();
+  // const { user } = useUser();
+  console.log(user);
   const {data: tasks, setData: setTasks} = useProtectedResource(`/tasks/${localStorage.getItem("id")}`,[]);
 
   // console.log(tasks);

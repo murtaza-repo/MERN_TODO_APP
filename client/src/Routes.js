@@ -44,7 +44,7 @@ export const Routes = ({ isLoading, user}) => {
                         isLoading={isLoading}
                         isAuthed={!!user}
                     >
-                        <route.Component />
+                        <route.Component user={user}/>
                     </RouteType>
                 )
             })}
