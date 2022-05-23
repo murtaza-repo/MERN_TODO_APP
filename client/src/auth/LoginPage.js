@@ -8,7 +8,7 @@ export const LoginPage = ({isLoading}) => {
   const [loginError, setLoginError] = useState('');
   const history = useHistory();
 
-  if(localStorage.getItem('username')){
+  if(localStorage.getItem('id')){
     return <Redirect to='/' />
   }
 

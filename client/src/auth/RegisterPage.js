@@ -9,7 +9,7 @@ export const RegisterPage = ({ isLoading }) => {
   const [registerError, setRegisterError] = useState('');
   const history = useHistory();
 
-  if(localStorage.getItem('username')){
+  if(localStorage.getItem('id')){
     return <Redirect to='/' />
   }
 
