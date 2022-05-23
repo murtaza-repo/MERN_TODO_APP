@@ -13,7 +13,6 @@ export const NavBar = ({ user }) => {
   const onClickLogOut = async () => {
     await getAuth().signOut();
     localStorage.clear();
-    history.push('/login');
   }
   
   return (
