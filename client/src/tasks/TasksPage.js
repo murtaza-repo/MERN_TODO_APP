@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavBar } from '../navigation';
-import { ToastContainer } from 'react-toastify';
 import { TasksPageList } from './TasksPageList';
 import { useProtectedResource } from './../data/useProtectedResource';
 import { AddTask } from './AddTask';
 import { postWithCredentials } from './../data/postWithCredentials';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const TasksPage = ({user}) => {
 
@@ -36,7 +37,16 @@ export const TasksPage = ({user}) => {
       taskWithId,
       ...tasks,
     ]);
-    console.log("added!")
+
+    toast.success('Task Added!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
 
   const onToggleCheck = async (taskId) => {
@@ -54,6 +64,16 @@ export const TasksPage = ({user}) => {
     const updatedTask = await response.json();
     
     setTasks(updatedTask);
+    
+    toast('Task status changed!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
 
   const onDelete = async (taskId) => {
@@ -62,6 +82,15 @@ export const TasksPage = ({user}) => {
     const updatedTask = await response.json();
     
     setTasks(updatedTask);
+    toast.error('Task deleted!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
  
   return (

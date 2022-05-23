@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
 import { useProtectedResource } from './../data/useProtectedResource';
 
@@ -9,10 +9,9 @@ export const NavBar = ({ user }) => {
 
   localStorage.setItem('username', userData.name);
 
-  const history = useHistory();
   const onClickLogOut = async () => {
-    await getAuth().signOut();
     localStorage.clear();
+    await getAuth().signOut();
   }
   
   return (
