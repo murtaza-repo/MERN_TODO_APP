@@ -3,7 +3,6 @@ import { NavBar } from '../navigation';
 import { ToastContainer } from 'react-toastify';
 import { TasksPageList } from './TasksPageList';
 import { useProtectedResource } from './../data/useProtectedResource';
-import { useUser } from './../auth/useUser';
 import { AddTask } from './AddTask';
 import { postWithCredentials } from './../data/postWithCredentials';
 

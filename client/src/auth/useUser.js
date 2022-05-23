@@ -10,11 +10,9 @@ export const useUser = () => {
     });
 
     useEffect(() => {        
-        const unsubscribe = getAuth().onAuthStateChanged(user => {
+        return getAuth().onAuthStateChanged(user => {
             setUserInfo({isLoading: false, user});
-        })
-        
-        unsubscribe();
+        });
     }, []);
 
     return userInfo;
