@@ -1,12 +1,19 @@
 import React, { useState } from "react";
+import { toast } from 'react-toastify';
+
 
 export const AddTask = ({addTask}) => {
   const [detail, setDetail] = useState("");
 
   const submitTask = async () => {
-      await addTask(detail);
-      document.querySelector('#taskDetail').value = '';
-      console.log("Done");
+      if(!detail){
+        toast('No data to add!');
+      }
+      else{
+        await addTask(detail);
+        setDetail('');
+        console.log("Done");
+      }
   }
 
   return (
@@ -20,10 +27,11 @@ export const AddTask = ({addTask}) => {
                 rows="2"
                 id="taskDetail"
                 placeholder="Add a task..."
+                value={detail}
                 onChange={e => setDetail(e.target.value)}
               />
               <div className="input-group-append">
-                <button type="button" style={{borderRadius: '0px 4px 4px 0px'}} onClick={submitTask}>
+                <button id="AddButton" type="button" style={{borderRadius: '0px 4px 4px 0px'}} onClick={submitTask}>
                   Add
                 </button>
               </div>

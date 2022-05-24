@@ -49,11 +49,11 @@ export const RegisterPage = ({ isLoading }) => {
   ) : (
     <div className="full-height-page">
       <div className="centered-container space-before vertical-center fade-in">
-        <div class="card">
-          <div class="card-header">
+        <div className="card">
+          <div className="card-header">
             <h5>Register</h5>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             {registerError ? (
               <div>
                 <p className="error-message">{registerError}</p>
@@ -100,7 +100,7 @@ export const RegisterPage = ({ isLoading }) => {
               Register
             </button>
           </div>
-          <div class="card-footer text-muted">
+          <div className="card-footer text-muted">
             <p style={{ textAlign: "center" }}>
               Already have an account? <Link to="/login">Login</Link>
             </p>

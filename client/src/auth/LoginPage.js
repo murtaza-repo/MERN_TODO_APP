@@ -42,11 +42,11 @@ export const LoginPage = ({ isLoading }) => {
   ) : (
     <div className="full-height-page">
       <div className="centered-container space-before vertical-center fade-in">
-        <div class="card" style={{ borderRadius: "8px" }}>
-          <div class="card-header">
+        <div className="card" style={{ borderRadius: "8px" }}>
+          <div className="card-header">
             <h5>Login</h5>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             {loginError ? (
               <div>
                 <p className="error-message">{loginError}</p>
@@ -78,7 +78,7 @@ export const LoginPage = ({ isLoading }) => {
               Login
             </button>
           </div>
-          <div class="card-footer text-muted">
+          <div className="card-footer text-muted">
             <p className="space-after" style={{ textAlign: "center" }}>
               Do not have a account? <Link to="/register">Register</Link>
             </p>

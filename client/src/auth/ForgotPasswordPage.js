@@ -14,7 +14,7 @@ export const ForgotPasswordPage = () => {
       setError("Please enter email address...");
     } else {
       sendPasswordResetEmail(getAuth(), emailValue)
-        .then(() =>
+        .then(() => {
           toast.success("Reset mail sent", {
             position: "top-right",
             autoClose: 3000,
@@ -23,7 +23,12 @@ export const ForgotPasswordPage = () => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          })
+          });
+
+          setTimeout(() => {
+            history.push("/login");
+          }, 5000);
+        }
         )
         .catch((e) => {
           if (e.message.includes("user-not-found")) {
@@ -38,10 +43,6 @@ export const ForgotPasswordPage = () => {
             setError(e.message);
           }
         });
-
-      setTimeout(() => {
-        history.push("/login");
-      }, 5000);
     }
   };
 
@@ -53,11 +54,11 @@ export const ForgotPasswordPage = () => {
     <div className="full-height-page">
       <ToastContainer />
       <div className="centered-container space-before vertical-center">
-        <div class="card">
-          <div class="card-header">
-            <h5>Forgot Password</h5>
+        <div className="card">
+          <div className="card-header">
+            <h5><i className="fa-solid fa-arrow-left" style={{cursor:'pointer'}} onClick={() => history.goBack()}></i> Forgot Password</h5>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             {error ? (
               <div>
                 <p className="error-message">{error}</p>
