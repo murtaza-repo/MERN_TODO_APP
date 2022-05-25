@@ -1,4 +1,5 @@
 export { db } from './db';
+export { updateTask } from './updateTask';
 export { deleteTask } from './deleteTask';
 export { updateStatus } from './updateStatus';
 export { createTask } from './createTask';
